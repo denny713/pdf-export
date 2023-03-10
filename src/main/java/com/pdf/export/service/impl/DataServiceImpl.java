@@ -39,7 +39,7 @@ public class DataServiceImpl implements DataService {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .header("Accept", "application/vnd.github+json")
-                .header("Authorization", "Bearer " + environment.getProperty("api.token"))
+                .header("Authorization", "Bearer github_pat_" + environment.getProperty("api.token"))
                 .header("X-GitHub-Api-Version", "2022-11-28")
                 .uri(new URI(url)).build();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());

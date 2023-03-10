@@ -30,7 +30,7 @@ public class PdfController {
 
     @PostMapping("/download")
     @ResponseBody
-    public ResponseVo pdfDownload(@Valid @RequestBody SearchDataDto searchDto) throws URISyntaxException, IOException, InterruptedException, JSONException {
+    public ResponseVo pdfDownloadNew(@Valid @RequestBody SearchDataDto searchDto) throws URISyntaxException, IOException, InterruptedException, JSONException {
         JSONObject data = dataService.getData(searchDto);
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddhhmmss");
         String filename = dateFormat.format(new Date());

@@ -30,4 +30,4 @@ server:
       enabled: true
 api:
   url: https://api.github.com/search/users
-  token: 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     #Exp in 08-04-2023
+  token: 11AJRJNMI0epq0EblVA0Pj_YPlhXYL6uEQZO9gcxevgK5coliC2WODkKdGwSxRWKPtYBDMPA5Hez1GyyDU     #Exp in 09-04-2023
