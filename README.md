@@ -18,5 +18,11 @@ Step :
 - Also have Unit Testing in package 'src/test/java/com/pdf/export'.
 - Testing also can execute using swagger in link 'localhost:7020/api/swagger-ui/index.html' without single quote (');
 
+Step Testing Via Postman :
+- Using url 'localhost:7020/api/pdf/download' without single quote (') to export new PDF.
+- Using url 'localhost:7020/api/pdf/download/existing' without single quote (') to export existing PDF.
+- Using url 'localhost:7020/api/pdf/list' without single quote (') to get all history  of exported PDF.
+- PDF can find in D:/{filename.pdf} after execute the service with name format 'yyyyMMddhhmmss'.
+
 Created By:
 Denny Afrizal
