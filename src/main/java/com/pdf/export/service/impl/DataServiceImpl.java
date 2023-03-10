@@ -24,6 +24,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -80,6 +81,11 @@ public class DataServiceImpl implements DataService {
             return null;
         }
         return pdfExp;
+    }
+
+    @Override
+    public List<PdfExp> getAllHistory() {
+        return pdfExpRepo.findAllByOrderById();
     }
 
     public Long getId() {

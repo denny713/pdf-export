@@ -1,6 +1,8 @@
 package com.pdf.export.service;
 
+import com.pdf.export.data.entity.PdfExp;
 import com.pdf.export.data.model.dto.AddExportDto;
+import com.pdf.export.data.model.dto.PdfExistingDto;
 import com.pdf.export.data.model.dto.SearchDataDto;
 import com.pdf.export.data.model.vo.ResponseVo;
 import org.json.JSONException;
@@ -14,6 +16,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @SpringBootTest
 public class Data {
@@ -33,5 +36,17 @@ public class Data {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddhhmmss");
         ResponseVo dataSave = dataService.saveExportHistory(new AddExportDto(dateFormat.format(new Date()), payload));
         Assertions.assertEquals(200, dataSave.getCode());
+    }
+
+    @Test
+    public void searchPdfHistory() {
+        PdfExp pdf = dataService.searchPdfHistory(new PdfExistingDto(1L, "20230310045743"));
+        Assertions.assertNotNull(pdf);
+    }
+
+    @Test
+    public void getAllHistory() {
+        List<PdfExp> pdfExpList = dataService.getAllHistory();
+        Assertions.assertEquals(1, pdfExpList.size());
     }
 }

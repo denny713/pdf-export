@@ -60,4 +60,10 @@ public class PdfController {
         }
         return pdfService.exportPdf(new AddExportDto(pdfExp.getFilename(), pdfExp.getPayload()));
     }
+
+    @GetMapping("/list")
+    @ResponseBody
+    public ResponseVo pdfGetAll() {
+        return ResponseUtil.setResponse(HttpStatus.OK.value(), "Success Get Data", dataService.getAllHistory());
+    }
 }

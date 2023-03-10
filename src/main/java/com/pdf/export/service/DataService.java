@@ -11,6 +11,7 @@ import org.json.JSONObject;
 import javax.transaction.Transactional;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.List;
 
 @Transactional
 public interface DataService {
@@ -20,4 +21,6 @@ public interface DataService {
     public ResponseVo saveExportHistory(AddExportDto historyDto);
 
     public PdfExp searchPdfHistory(PdfExistingDto existDto);
+
+    public List<PdfExp> getAllHistory();
 }
