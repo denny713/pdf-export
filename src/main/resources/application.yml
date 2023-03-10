@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: export-pdf
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/pdfexp?useSSL=false&useLegacyDatetimeCode=false&characterEncoding=utf8
+    username: root
+    password: p@ssw0rd
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  mvc:
+    servlet:
+      path: /
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  servlet:
+    multipart:
+      max-file-size: 128KB
+      max-request-size: 128KB
+server:
+  port: 7020
+  servlet:
+    context-path: /api
+    session:
+      timeout: 1
+  error:
+    path: /error
+    whitelabel:
+      enabled: true
+api:
+  url: https://api.github.com/search/users
+  token: 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     #Exp in 08-04-2023
