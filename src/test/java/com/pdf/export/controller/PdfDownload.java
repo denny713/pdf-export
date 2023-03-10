@@ -1,5 +1,6 @@
 package com.pdf.export.controller;
 
+import com.pdf.export.data.model.dto.PdfExistingDto;
 import com.pdf.export.data.model.dto.SearchDataDto;
 import com.pdf.export.data.model.vo.ResponseVo;
 import org.json.JSONException;
@@ -20,6 +21,12 @@ public class PdfDownload {
     @Test
     public void pdfDownloadNew() throws JSONException, URISyntaxException, IOException, InterruptedException {
         ResponseVo response = pdfController.pdfDownloadNew(new SearchDataDto("Q", 1, 100));
+        Assertions.assertEquals(200, response.getCode());
+    }
+
+    @Test
+    public void pdfDownloadExisting() throws JSONException, URISyntaxException, IOException, InterruptedException {
+        ResponseVo response = pdfController.pdfDownloadExisting(new PdfExistingDto(1L, "20230310045743"));
         Assertions.assertEquals(200, response.getCode());
     }
 }

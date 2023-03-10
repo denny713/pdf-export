@@ -2,11 +2,13 @@ package com.pdf.export.service.impl;
 
 import com.pdf.export.data.entity.PdfExp;
 import com.pdf.export.data.model.dto.AddExportDto;
+import com.pdf.export.data.model.dto.PdfExistingDto;
 import com.pdf.export.data.model.dto.SearchDataDto;
 import com.pdf.export.data.model.vo.ResponseVo;
 import com.pdf.export.data.repo.PdfExpRepo;
 import com.pdf.export.service.DataService;
 import com.pdf.export.util.ResponseUtil;
+import com.pdf.export.util.StringUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,6 +24,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Date;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -60,6 +63,23 @@ public class DataServiceImpl implements DataService {
             log.error(e.getMessage());
             return ResponseUtil.setResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), e.getMessage(), null);
         }
+    }
+
+    @Override
+    public PdfExp searchPdfHistory(PdfExistingDto existDto) {
+        PdfExp pdfExp = new PdfExp();
+        if (existDto.getId() != null) {
+            Optional<PdfExp> pdf = pdfExpRepo.findById(existDto.getId());
+            if (pdf.isPresent()) {
+                pdfExp = pdf.get();
+            }
+        } else if (!StringUtil.isNullOrEmpty(existDto.getFilename())) {
+            pdfExp = pdfExpRepo.findFirstByFilename(existDto.getFilename());
+        }
+        if (pdfExp.getId() == null) {
+            return null;
+        }
+        return pdfExp;
     }
 
     public Long getId() {

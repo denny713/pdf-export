@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface PdfExpRepo extends JpaRepository<PdfExp, Long> {
 
     public PdfExp findFirstByOrderByIdDesc();
+
+    public PdfExp findFirstByFilename(String filename);
 }
