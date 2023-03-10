@@ -1,6 +1,6 @@
 package com.pdf.export.service;
 
-import com.pdf.export.data.model.dto.AddExportHistoryDto;
+import com.pdf.export.data.model.dto.AddExportDto;
 import com.pdf.export.data.model.dto.SearchDataDto;
 import com.pdf.export.data.model.vo.ResponseVo;
 import org.json.JSONException;
@@ -15,5 +15,5 @@ public interface DataService {
 
     public JSONObject getData(SearchDataDto dataDto) throws URISyntaxException, IOException, InterruptedException, JSONException;
 
-    public ResponseVo saveExportHistory(AddExportHistoryDto historyDto);
+    public ResponseVo saveExportHistory(AddExportDto historyDto);
 }

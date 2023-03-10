@@ -1,7 +1,7 @@
 package com.pdf.export.service.impl;
 
 import com.pdf.export.data.entity.PdfExp;
-import com.pdf.export.data.model.dto.AddExportHistoryDto;
+import com.pdf.export.data.model.dto.AddExportDto;
 import com.pdf.export.data.model.dto.SearchDataDto;
 import com.pdf.export.data.model.vo.ResponseVo;
 import com.pdf.export.data.repo.PdfExpRepo;
@@ -47,7 +47,7 @@ public class DataServiceImpl implements DataService {
     }
 
     @Override
-    public ResponseVo saveExportHistory(AddExportHistoryDto historyDto) {
+    public ResponseVo saveExportHistory(AddExportDto historyDto) {
         try {
             PdfExp pdfExp = new PdfExp();
             pdfExp.setId(getId());

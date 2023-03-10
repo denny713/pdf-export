@@ -3,13 +3,13 @@ package com.pdf.export.data.model.dto;
 import lombok.Data;
 
 @Data
-public class AddExportHistoryDto {
+public class AddExportDto {
 
-    public AddExportHistoryDto() {
+    public AddExportDto() {
         super();
     }
 
-    public AddExportHistoryDto(String filename, String payload) {
+    public AddExportDto(String filename, String payload) {
         this.filename = filename;
         this.payload = payload;
     }
